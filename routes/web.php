@@ -17,3 +17,5 @@ Route::get('/', function () {
 Route::get('/create', function () {
     return view('pages.Authors.create');
 });
+
+Route::resource('authors','AuthorsController');

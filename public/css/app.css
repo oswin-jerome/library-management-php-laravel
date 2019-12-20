@@ -9,13 +9,13 @@
   grid-template-columns: 1fr 5fr;
 }
 
-nav {
+#myNav {
   background-color: #2C3A47;
   min-height: 100vh;
   max-width: 100%;
 }
 
-nav .logo-section {
+#myNav .logo-section {
   display: -webkit-box;
   display: flex;
   -webkit-box-pack: center;
@@ -26,21 +26,21 @@ nav .logo-section {
   background-color: rgba(0, 0, 0, 0.205);
 }
 
-nav .logo-section p {
+#myNav .logo-section p {
   color: #fff;
   font-style: italic;
 }
 
-nav ul {
+#myNav ul {
   margin-top: 30px;
   padding: 0;
 }
 
-nav ul li {
+#myNav ul li {
   list-style: none;
 }
 
-nav ul li a {
+#myNav ul li a {
   text-decoration: none;
   color: #fff;
   font-weight: 500;
@@ -48,12 +48,12 @@ nav ul li a {
   padding: 10px 15px;
 }
 
-nav ul a:hover {
+#myNav ul a:hover {
   color: #25CCF7;
   background-color: rgba(37, 204, 247, 0.12);
 }
 
-nav ul a:active {
+#myNav ul a:active {
   color: #25CCF7;
   background-color: rgba(37, 204, 247, 0.12);
 }
