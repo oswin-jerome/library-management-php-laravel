@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Category;
-class CategoriesController extends Controller
+use App\Department;
+class DepartmentsController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,9 +13,9 @@ class CategoriesController extends Controller
      */
     public function index()
     {
-        $categories  = Category::paginate(15);
-        
-        return view('pages.categories.categories',['categories'=>$categories]);
+        $departments  = Department::paginate(15);
+        // return "sd";
+        return view('pages.departments.departments',['departments'=>$departments]);
     }
 
     /**
@@ -25,7 +25,7 @@ class CategoriesController extends Controller
      */
     public function create()
     {
-        return view('pages.categories.create');
+        return view('pages.departments.create');
     }
 
     /**
@@ -36,11 +36,11 @@ class CategoriesController extends Controller
      */
     public function store(Request $request)
     {
-        $category = new Category();
-        $category->name = $request['name'];
-        $category->save();
+        $department = new Department();
+        $department->name = $request['name'];
+        $department->save();
 
-        return redirect('categories')->with('success','Category added');
+        return redirect('departments')->with('success','Department added');
     }
 
     /**
@@ -62,9 +62,9 @@ class CategoriesController extends Controller
      */
     public function edit($id)
     {
-        $category = Category::find($id);
+        $department = Department::find($id);
 
-        return view('pages.categories.edit',['category'=>$category]);
+        return view('pages.departments.edit',['department'=>$department]);
     }
 
     /**
@@ -76,11 +76,11 @@ class CategoriesController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $category = Category::find($id);
-        $category->name = $request['name'];
-        $category->save();
+        $department = Department::find($id);
+        $department->name = $request['name'];
+        $department->save();
 
-        return redirect('categories')->with('warning','Category updated :-)');
+        return redirect('departments')->with('warning','Department updated :-)');
     }
 
     /**

@@ -1,3 +1,7 @@
+.card {
+  border-radius: 10px !important;
+}
+
 * {
   margin: 0;
   box-sizing: border-box;

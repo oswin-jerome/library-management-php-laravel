@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateAuthorsTable extends Migration
+class CreateMembersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,15 @@ class CreateAuthorsTable extends Migration
      */
     public function up()
     {
-        Schema::create('authors', function (Blueprint $table) {
-            $table->integer('id')->autoIncrement()->unique();
+        Schema::create('members', function (Blueprint $table) {
+            $table->integer('id')->unique();
             $table->string('name');
+            $table->integer('type');
+            $table->string('email');
+            $table->integer('dept');
             $table->timestamps();
+            $table->foreign('dept')->references('id')->on('departments');
+            $table->primary('id');
         });
     }
 
@@ -27,6 +32,6 @@ class CreateAuthorsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('authors');
+        Schema::dropIfExists('members');
     }
 }

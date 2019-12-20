@@ -8,5 +8,7 @@
         <li><a href="http://127.0.0.1:5500/books.html"> Books</a></li>
         <li><a href="/authors"> Authors</a></li>
         <li><a href="/categories"> Categories</a></li>
+        <li><a href="/departments"> Departments</a></li>
+        <li><a href="/members"> Members</a></li>
     </ul>
 </nav>
