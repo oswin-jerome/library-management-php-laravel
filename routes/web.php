@@ -14,3 +14,6 @@
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('/create', function () {
+    return view('pages.Authors.create');
+});
