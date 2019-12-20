@@ -10,7 +10,7 @@
             <li class="list-group-item m-1 d-flex justify-content-between align-items-center border-0 mt-5">
                 <div class="left d-flex ">
                     <div class="lid mr-5 h5 text-bold text-black-50">ID</div>
-                    <div class="lname h5 text-bold text-black-50">Author's name</div>
+                    <div class="lname h5 text-bold text-black-50">Category name</div>
                 </div>
                 <div class="right d-flex">
                     
@@ -20,16 +20,16 @@
             
             <ul class="list-group list">
 
-                @foreach ($authors as $author)
+                @foreach ($categories as $category)
                 
                     <li class="list-group-item my-2 shadow-sm d-flex justify-content-between align-items-center">
                         <div class="left d-flex ">
-                            <div class="lid mr-5 ">{{$author->id}}</div>
-                            <div class="lname">{{$author->name}}</div>
+                            <div class="lid mr-5 ">{{$category->id}}</div>
+                            <div class="lname">{{$category->name}}</div>
                         </div>
                         <div class="right d-flex">
-                            <a href="authors/{{$author->id}}/edit" class="btn-primary btn btn-sm mr-2"> <i class="fas fa-pencil-alt text-small"></i> &nbsp; Edit</a>
-                            <a href="authors/{{$author->id}}" class="btn-warning text-white btn btn-sm"> <i class="far fa-eye"></i> &nbsp; View</a>
+                            <a href="/categories/{{$category->id}}/edit" class="btn-primary btn btn-sm mr-2"> <i class="fas fa-pencil-alt text-small"></i> &nbsp; Edit</a>
+                            <a href="/categories/{{$category->id}}/" class="btn-warning text-white btn btn-sm"> <i class="far fa-eye"></i> &nbsp; View</a>
                         </div>
                     </li>
                     
@@ -37,7 +37,7 @@
 
             </ul>
             <div class="text-center justify-content-center d-flex mt-5">
-                {{$authors}}
+                {{$categories}}
             </div>
         </div>
 

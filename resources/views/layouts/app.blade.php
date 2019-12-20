@@ -20,6 +20,7 @@
     <div id="layout">
         @include('gc.navBar')
         <main id="content">
+            @include('gc.messages')
             @yield('content')
         </main>
     </div>

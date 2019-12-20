@@ -3,9 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Author;
-
-class AuthorsController extends Controller
+use App\Category;
+class CategoriesController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,8 +13,9 @@ class AuthorsController extends Controller
      */
     public function index()
     {
-        $authors = Author::paginate(15);
-        return view('pages.Authors.authors',['authors'=>$authors]);
+        $categories  = Category::paginate(15);
+        
+        return view('pages.categories.categories',['categories'=>$categories]);
     }
 
     /**
@@ -25,7 +25,7 @@ class AuthorsController extends Controller
      */
     public function create()
     {
-        return view('pages.Authors.create');
+        return view('pages.categories.create');
     }
 
     /**
@@ -36,10 +36,11 @@ class AuthorsController extends Controller
      */
     public function store(Request $request)
     {
-        $author = new Author();
-        $author->name = $request['name'];
-        $author->save();
-        return redirect('authors/')->with('success','Author added');;
+        $category = new Category();
+        $category->name = $request['name'];
+        $category->save();
+
+        return redirect('categories/')->with('success','Category added');
     }
 
     /**
@@ -50,8 +51,7 @@ class AuthorsController extends Controller
      */
     public function show($id)
     {
-        
-        
+        //
     }
 
     /**
@@ -62,8 +62,9 @@ class AuthorsController extends Controller
      */
     public function edit($id)
     {
-        $author =  Author::find($id);
-        return view('pages.Authors.edit',['author'=>$author]);
+        $category = Category::find($id);
+
+        return view('pages.categories.edit',['category'=>$category]);
     }
 
     /**
@@ -75,10 +76,11 @@ class AuthorsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $author =  Author::find($id);
-        $author->name = $request['name'];
-        $author->save();
-        return redirect('authors')->with('warning','Author updated :-)');;
+        $category = Category::find($id);
+        $category->name = $request['name'];
+        $category->save();
+
+        return redirect('categories')->with('warning','Category updated :-)');
     }
 
     /**

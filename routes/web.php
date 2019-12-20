@@ -19,3 +19,4 @@ Route::get('/create', function () {
 });
 
 Route::resource('authors','AuthorsController');
+Route::resource('categories','CategoriesController');
