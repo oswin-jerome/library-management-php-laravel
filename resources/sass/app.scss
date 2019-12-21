@@ -10,6 +10,20 @@
     font-family: 'Nunito', sans-serif;
 }
 
+.bae {
+    position: absolute;
+    bottom: 0px;
+    right: 0px;
+    z-index: -990000;
+    text-align: right;
+}
+
+.bae img {
+    /* opacity: 0.30; */
+    text-align: right;
+    width: 50%;
+}
+
 #layout {
     display: grid;
     grid-template-columns: 1fr 5fr;
@@ -25,7 +39,7 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        height: 100px;
+        // height: 100px;
         background-color: rgba(0, 0, 0, 0.205);
 
         p {

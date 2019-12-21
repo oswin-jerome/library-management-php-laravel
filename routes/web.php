@@ -22,3 +22,4 @@ Route::resource('authors','AuthorsController');
 Route::resource('categories','CategoriesController');
 Route::resource('departments','DepartmentsController');
 Route::resource('members','MembersController');
+Route::resource('books','BooksController');
