@@ -10,6 +10,7 @@
         <link href="https://fonts.googleapis.com/css?family=Nunito&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
         
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.css">
         {{-- Style sheet --}}
         <link rel="stylesheet" href="{{asset('css/app.css')}}">
     </head>
@@ -19,7 +20,7 @@
 
     <div id="layout">
         @include('gc.navBar')
-        <main id="content">
+        <main id="content" class="animated fadeIn faster">
             @include('gc.messages')
             @yield('content')
         </main>

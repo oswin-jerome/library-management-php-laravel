@@ -14,9 +14,7 @@
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('/create', function () {
-    return view('pages.Authors.create');
-});
+Route::get('/dashboard', 'DashboardsController@index');
 
 Route::resource('authors','AuthorsController');
 Route::resource('categories','CategoriesController');

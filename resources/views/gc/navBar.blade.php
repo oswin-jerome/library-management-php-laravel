@@ -5,7 +5,7 @@
         
     </div>
     <ul>
-        <li><a href="http://127.0.0.1:5500/index.html"> Dashboard</a></li>
+        <li><a href="/dashboard"> Dashboard</a></li>
         <li><a href="/books"> Books</a></li>
         <li><a href="/authors"> Authors</a></li>
         <li><a href="/categories"> Categories</a></li>
