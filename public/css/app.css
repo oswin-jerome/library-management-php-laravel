@@ -8,6 +8,14 @@
   font-family: "Nunito", sans-serif;
 }
 
+.hide {
+  display: none;
+}
+
+.show {
+  display: initial;
+}
+
 .bae {
   position: absolute;
   bottom: 0px;

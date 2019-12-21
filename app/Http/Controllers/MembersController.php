@@ -15,9 +15,26 @@ class MembersController extends Controller
      */
     public function index()
     {
-        $members = Member::all();
-        
-        return view('pages.members.members',['members'=>$members]);
+        $parms = $_GET;
+        $departments = Department::all();
+
+        if(isset($_GET['submit'])){
+            
+            if($_GET['key']!='' ){
+                if($_GET['showType']=='all'){
+                    $_GET['showType'] ='';
+                }
+                if($_GET['deptShow']=='0'){
+                    $_GET['deptShow'] ='';
+                }
+                $members  = Member::where([[$_GET['key'],'LIKE','%'.$_GET['value'].'%'],['type','LIKE','%'.$_GET['showType'].'%'],['dept','LIKE','%'.$_GET['deptShow'].'%']])->orderBy($_GET['filter'],$_GET['arrange'])->paginate(15)->appends(request()->query());
+                return view('pages.members.members',['members'=>$members,'parms'=>$parms,'departments'=>$departments]);
+            }
+
+        }else{
+            $members = Member::paginate(15);
+            return view('pages.members.members',['members'=>$members,'departments'=>$departments,'parms'=>$parms,]);
+        }
     }
 
     /**

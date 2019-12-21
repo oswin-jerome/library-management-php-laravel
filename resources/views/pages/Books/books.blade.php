@@ -5,8 +5,67 @@
         
 
         <div class="list-container container">
-            
-            <table class="table table-borderless">
+            <div class="search text-center mt-2">
+                <i class="fas fa-search text-small text-black-50" id="toggleSearch"></i>
+            </div>
+
+
+             {{Form::open(['action'=>'BooksController@index','method'=>'GET','class'=>'hides','id'=>'form'])}}
+                <div class="row d-flex justify-content-center align-content-center align-items-center mt-3 shadow-sm border-0 p-1">
+                    <div class="form-group">
+                        <label for="exampleFormControlSelect1">Find using : </label>
+                        <select class="form-control" id="exampleFormControlSelect1" name="key">
+                            <option @isset($parms['key']) @if ($parms['key']=='id') selected @endif @endisset value="id">ID</option>
+                            <option @isset($parms['key']) @if ($parms['key']=='name') selected @endif @endisset value="name">Book Name</option>
+                            <option @isset($parms['key']) @if ($parms['key']=='author') selected @endif @endisset value="author">Author</option>
+                        </select>
+                    </div>
+                    <div class="form-group ml-3">
+                        <label for="ID">Value :</label>
+                        <input @isset($parms['value']) @if ($parms['value']=='')
+                        @else
+                            value={{$parms['value']}}
+                        @endif @endisset type="text" class="form-control" name="value" id="ID">
+                    </div>
+
+                    <div class="form-group ml-3">
+                        <label for="exampleFormControlSelect1">Categories: </label>
+                        <select class="form-control " id="exampleFormControlSelect1" name="showCate">
+                            <option @isset($parms['showCate']) @if ($parms['showCate']=='0') selected @endif @endisset value="0">All</option>
+                            @foreach ($categories as $category)
+                                <option @isset($parms['showCate']) @if ($parms['showCate']==$category->id) selected @endif @endisset value="{{$category->id}}">{{$category->name}}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                    <div class="form-group ml-3">
+                        <label for="exampleFormControlSelect1">Filter using : </label>
+                        <select class="form-control " id="exampleFormControlSelect1" name="filter">
+                            <option @isset($parms['filter']) @if ($parms['filter']=='id') selected @endif @endisset value="id">ID</option>
+                            <option @isset($parms['filter']) @if ($parms['filter']=='name') selected @endif @endisset value="name">Name</option>
+                            <option @isset($parms['filter']) @if ($parms['filter']=='author') selected @endif @endisset value="author">Author</option>
+                            <option @isset($parms['filter']) @if ($parms['filter']=='category') selected @endif @endisset value="category">Category</option>
+                            {{-- <option @isset($parms['filter']) @if ($parms['filter']=='dept') selected @endif @endisset value="dept">Dept</option> --}}
+                        </select>
+                    </div>
+
+                    <div class="form-group ml-3">
+                        <label for="exampleFormControlSelect1">Filter using : </label>
+                        <select class="form-control " id="exampleFormControlSelect1" name="arrange">
+                            <option @isset($parms['arrange']) @if ($parms['arrange']=='asc') selected @endif @endisset value="asc">Assending</option>
+                            <option @isset($parms['arrange']) @if ($parms['arrange']=='desc') selected @endif @endisset value="desc">Decending</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group ml-4 mt-2">
+                        <button type="submit" name="submit" value="search" class="btn btn-primary mt-4">Search</button>
+                    </div>
+
+
+                </div>
+            {{Form::close()}}
+
+
+            <table class="table table-borderless" id="myTable">
                 <thead class="">
                     <tr>
                     <th scope="col">ID</th>
@@ -46,25 +105,6 @@
             .fa-pencil-alt,.fa-eye{
                 font-size: 14px !important;
             }
-
-            .lid{
-                flex: 1;
-                font-weight: bold;
-            }
-            .lname{
-                flex: 2;
-            }
-            .lemail{
-                flex: 3;
-                min-width: 300px;
-            }
-            .ltype{
-                flex: 1;
-            }
-            .ldept{
-                flex: 1;
-            }
-
             .cust{
                 /* background-color: red !important; */
                 box-shadow: rgba(0,0,0,.15) 0px 3px 8px;
@@ -81,5 +121,12 @@
 
 
         </style>
+        <script>
+            var el = document.getElementById('toggleSearch');
+            var elf = document.getElementById('form');
+            el.addEventListener('click',()=>{
+                elf.classList.toggle('hide');
+            });
+        </script>
     </div>
 @endsection

@@ -14,8 +14,23 @@ class AuthorsController extends Controller
      */
     public function index()
     {
-        $authors = Author::paginate(15);
-        return view('pages.Authors.authors',['authors'=>$authors]);
+        $parms = $_GET;
+
+        if(isset($_GET['submit'])){
+            if($_GET['key'] =='id'){
+                $authors  = Author::where('id','LIKE','%'.$_GET['value'].'%')->orderBy($_GET['filter'],$_GET['arrange'])->paginate(15)->appends(request()->query());
+                return view('pages.authors.authors',['authors'=>$authors,'parms'=>$parms]);
+            }
+            if($_GET['key'] =='name'){
+                $authors  = Author::where('name','LIKE','%'.$_GET['value'].'%')->orderBy($_GET['filter'],$_GET['arrange'])->paginate(15)->appends(request()->query());
+                return view('pages.authors.authors',['authors'=>$authors,'parms'=>$parms]);
+            }
+
+        }else{
+            $authors  = Author::paginate(15);
+        
+            return view('pages.authors.authors',['authors'=>$authors,'parms'=>$parms]);
+        }
     }
 
     /**

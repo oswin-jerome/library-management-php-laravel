@@ -13,10 +13,27 @@ class DepartmentsController extends Controller
      */
     public function index()
     {
-        $departments  = Department::paginate(15);
-        // return "sd";
-        return view('pages.departments.departments',['departments'=>$departments]);
+        
+        $parms = $_GET;
+
+        if(isset($_GET['submit'])){
+            if($_GET['key'] =='id'){
+                $departments  = Department::where('id','LIKE','%'.$_GET['value'].'%')->orderBy($_GET['filter'],$_GET['arrange'])->paginate(15)->appends(request()->query());
+                return view('pages.departments.departments',['departments'=>$departments,'parms'=>$parms]);
+            }
+            if($_GET['key'] =='name'){
+                $departments  = Department::where('name','LIKE','%'.$_GET['value'].'%')->orderBy($_GET['filter'],$_GET['arrange'])->paginate(15)->appends(request()->query());
+                return view('pages.departments.departments',['departments'=>$departments,'parms'=>$parms]);
+            }
+
+        }else{
+            $departments  = Department::paginate(15);
+        
+            return view('pages.departments.departments',['departments'=>$departments,'parms'=>$parms]);
+        }
     }
+
+
 
     /**
      * Show the form for creating a new resource.
