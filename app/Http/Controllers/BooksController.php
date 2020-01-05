@@ -38,7 +38,7 @@ class BooksController extends Controller
             return view('pages.books.books',['books'=>$books,'parms'=>$parms,'categories'=>$categories]);
 
         }else{
-            $books = Book::paginate(1);
+            $books = Book::paginate(15);
             return view('pages.books.books',['books'=>$books,'categories'=>$categories,'parms'=>$parms]);
         }
     }

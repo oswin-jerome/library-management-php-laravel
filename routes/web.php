@@ -11,9 +11,7 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'DashboardsController@index');
 Route::get('/dashboard', 'DashboardsController@index');
 
 Route::resource('authors','AuthorsController');
@@ -21,3 +19,4 @@ Route::resource('categories','CategoriesController');
 Route::resource('departments','DepartmentsController');
 Route::resource('members','MembersController');
 Route::resource('books','BooksController');
+Route::resource('issue_book','TransactionController');

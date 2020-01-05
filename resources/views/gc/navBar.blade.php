@@ -11,6 +11,7 @@
         <li><a href="/categories"> Categories</a></li>
         <li><a href="/departments"> Departments</a></li>
         <li><a href="/members"> Members</a></li>
+        <li><a href="/issue_book"> Issue Book</a></li>
     </ul>
 </nav>
 
