@@ -18,7 +18,7 @@ class CreateTransactionsTable extends Migration
             $table->integer('book_id');
             $table->integer('member_id');
             $table->dateTime('rented_at', 0);
-            $table->dateTime('returned_at', 0);
+            $table->dateTime('returned_at', 0)->nullable();
             $table->integer('isReturned');
             $table->timestamps();
 

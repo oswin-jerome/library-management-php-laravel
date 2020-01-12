@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Member;
 use App\Department;
+use App\Transaction;
+use App\Books;
 
 class MembersController extends Controller
 {
@@ -81,7 +83,11 @@ class MembersController extends Controller
      */
     public function show($id)
     {
-        //
+        $member = Member::find($id);
+        $booksRented = Transaction::where('member_id','=',$id)->get();
+        $booksRented2 = Transaction::where([['member_id','=',$id],['isReturned','=','0']])->get();
+        return view('pages.members.view',['member'=>$member,'rented'=>$booksRented,'toreturn'=>$booksRented2]);
+
     }
 
     /**

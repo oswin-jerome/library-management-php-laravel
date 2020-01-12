@@ -21,7 +21,7 @@
                 <div class="item animated bounceIn">
                     <div class="pattern"></div>
                     <p class="title">Books to be returned</p>
-                    <p class="value">42</p>
+                    <p class="value">{{count($btor)}}</p>
                 </div>
                 <div class="item animated bounceIn">
                     <div class="pattern"></div>

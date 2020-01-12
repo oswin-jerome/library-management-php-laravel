@@ -12,6 +12,7 @@ class DashboardsController extends Controller
         $members = Member::count();
         $books = Book::count();
         $booksTaken = Transaction::count();
-        return view('pages.dashboard.dash',['total_members'=>$members,'total_books'=>$books,'booksTaken'=>$booksTaken]);
+        $booksTr = Transaction::where('isReturned','=',0)->get();
+        return view('pages.dashboard.dash',['total_members'=>$members,'total_books'=>$books,'booksTaken'=>$booksTaken,'btor'=>$booksTr]);
     }
 }
