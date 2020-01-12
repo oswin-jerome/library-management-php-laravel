@@ -64,36 +64,38 @@
                 </div>
             {{Form::close()}}
 
-
-            <table class="table table-borderless" id="myTable">
-                <thead class="">
-                    <tr>
-                    <th scope="col">ID</th>
-                    <th scope="col">Book Name</th>
-                    <th scope="col">Author</th>
-                    <th scope="col">Category</th>
-                    {{-- <th scope="col" class="contols">Controls</th> --}}
-                    </tr>
-                </thead>
-                <tbody>
-
-                    @foreach ($books as $book)
-                        
-                        <tr class="cust bg-white">
-                            <th scope="row" class="">{{$book->id}}</th>
-                            <td>{{$book->name}}</td>
-                            <td>{{$book->auth->name}}</td>
-                            <td>{{$book->cate->name}}</td>
-                            <td class="contols">
-                                <a href="/books/{{$book->id}}/edit" class="btn-primary btn btn-sm mr-2"> <i class="fas fa-pencil-alt text-small"></i> &nbsp; Edit</a>
-                                <a href="/books/{{$book->id}}" class="btn-warning text-white btn btn-sm"> <i class="far fa-eye"></i> &nbsp; View</a>
-                            </td>
+            @if (count($books)<1)
+                <h1 class="mt-5 heading text-center text-grey">No Books</h1>
+            @else
+                <table class="table table-borderless" id="myTable">
+                    <thead class="">
+                        <tr>
+                        <th scope="col">ID</th>
+                        <th scope="col">Book Name</th>
+                        <th scope="col">Author</th>
+                        <th scope="col">Category</th>
+                        {{-- <th scope="col" class="contols">Controls</th> --}}
                         </tr>
+                    </thead>
+                    <tbody>
                         
-                    @endforeach
-                </tbody>
+                        @foreach ($books as $book)
+                            
+                            <tr class="cust bg-white">
+                                <th scope="row" class="">{{$book->id}}</th>
+                                <td>{{$book->name}}</td>
+                                <td>{{$book->auth->name}}</td>
+                                <td>{{$book->cate->name}}</td>
+                                <td class="contols">
+                                    <a href="/books/{{$book->id}}/edit" class="btn-primary btn btn-sm mr-2"> <i class="fas fa-pencil-alt text-small"></i> &nbsp; Edit</a>
+                                    <a href="/books/{{$book->id}}" class="btn-warning text-white btn btn-sm"> <i class="far fa-eye"></i> &nbsp; View</a>
+                                </td>
+                            </tr>
+                            
+                        @endforeach
+                    </tbody>
                 </table>
-            
+            @endif
             <div class="text-center justify-content-center d-flex mt-5">
                 {{$books}}
             </div>

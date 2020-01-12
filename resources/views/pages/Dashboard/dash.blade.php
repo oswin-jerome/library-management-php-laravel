@@ -2,14 +2,14 @@
 
 @section('content')
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.js"></script>
-    <div id="dash">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.css">
+<div id="dash">
             
             <div class="top-bar">
 
                 <div class="item animated bounceIn">
-                    <div class="pattern "></div>
+                <div class="pattern "></div>
                     <p class="title">  Total Members</p>
                     <p class="value">{{$total_members}}</p>
                 </div>
@@ -27,7 +27,7 @@
                     <div class="pattern"></div>
                     
                     <p class="title">No. of books taken</p>
-                    <p class="value">92</p>
+                    <p class="value">{{$booksTaken}}</p>
                 </div>
             </div>
             <div id="chart">
@@ -35,7 +35,7 @@
             </div>
             
         </div>
-
+        
         <script>
             var ctx = document.getElementById('myChart').getContext("2d");
             var gradientFill = ctx.createLinearGradient(0, 800, 00, 00);

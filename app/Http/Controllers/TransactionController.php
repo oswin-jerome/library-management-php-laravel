@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Transaction;
 
 class TransactionController extends Controller
 {
@@ -36,6 +37,19 @@ class TransactionController extends Controller
     public function store(Request $request)
     {
         //
+        $transaction = new Transaction();
+        $transaction->book_id = $request->bookId;
+        $transaction->member_id = $request->memberID;
+        $transaction->rented_at = date('Y-m-d h:m:s');
+        // $transaction->returned_at = null;
+        $transaction->isReturned = 0;
+
+        $chk = $transaction->save();
+        if($chk){
+            return redirect('issue_book')->with('success','Book issued successfully');
+        }else{
+            return redirect('issue_book')->with('error','Error in issuing book');
+        }
     }
 
     /**

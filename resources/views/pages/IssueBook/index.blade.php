@@ -3,24 +3,24 @@
 @section('content')
     <div id="issueBook" class="container-fluid d-flex justify-content-center align-items-center h-100 flex-column">
 
-
-        <form action="" class="card px-5 py-3 shadow rounded-lg w-50">
-            <h3 class="text-center  text-bold mb-5 mt-3 heading">Create a member</h3>
-            <div class="form-group">
-                <label for="bookId">Book ID</label>
-                <input type="text" class="form-control" id="bookId">
-                <small class="form-text " id="bookSts"></small>
-            </div>
-            <div class="form-group">
-                <label for="memberID">Member ID</label>
-                <input type="text" class="form-control" id="memberID">
-                <small class="form-text " id="memSts"></small>
-            </div>
-            <div class="text-center mb-2">
-                <button type="submit" id="ibs" class="btn btn-primary">Issue book</button>
-            </div>
-        </form>
-    
+        {{Form::open(['action'=>'TransactionController@store','method'=>'POST','class'=>'card px-5 py-3 shadow rounded-lg w-50','id'=>'form'])}}
+            {{-- <form action="" class="card px-5 py-3 shadow rounded-lg w-50"> --}}
+                <h3 class="text-center  text-bold mb-5 mt-3 heading">Create a member</h3>
+                <div class="form-group">
+                    <label for="bookId">Book ID</label>
+                    <input type="text" class="form-control" id="bookId" name="bookId">
+                    <small class="form-text " id="bookSts"></small>
+                </div>
+                <div class="form-group">
+                    <label for="memberID">Member ID</label>
+                    <input type="text" class="form-control" id="memberID" name="memberID">
+                    <small class="form-text " id="memSts"></small>
+                </div>
+                <div class="text-center mb-2">
+                    <button type="submit" id="ibs" class="btn btn-primary" name="submit">Issue book</button>
+                </div>
+            {{-- </form> --}}
+        {{Form::close()}}
 
     </div>
 
