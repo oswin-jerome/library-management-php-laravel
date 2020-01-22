@@ -50,7 +50,7 @@
 
 
                 <div class="text-center mt-3 mb-2">
-                    <button type="submit" class="btn btn-primary">ADD</button>
+                    <button type="submit" class="btn btn-warning">UPDATE</button>
                 </div>
             
             {{Form::close()}}

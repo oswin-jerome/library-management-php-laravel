@@ -77,6 +77,9 @@
             <div class="text-center justify-content-center d-flex mt-5">
                 {{$authors}}
             </div>
+            <div class="fab">
+                <a href="authors/create/"><i class="fas fa-plus"></i></a>
+            </div>
         </div>
 
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css">
@@ -97,6 +100,8 @@
                 border-collapse:separate; 
                 border-spacing: 0 15px; 
             }
+
+            
         </style>
         <script>
             var el = document.getElementById('toggleSearch');

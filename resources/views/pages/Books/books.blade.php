@@ -99,6 +99,9 @@
             <div class="text-center justify-content-center d-flex mt-5">
                 {{$books}}
             </div>
+            <div class="fab">
+                <a href="books/create/"><i class="fas fa-plus"></i></a>
+            </div>
         </div>
 
 
@@ -119,6 +122,32 @@
             .table{
                 border-collapse:separate; 
                 border-spacing: 0 15px; 
+            }
+
+            .fab{
+                position: absolute;
+                bottom: 50px;
+                right: 50px;
+                background: #007bff;
+                padding: 20px;
+                color: rebeccapurple;
+                border-radius: 100%;
+                width: 70px;
+                height: 70px;
+                box-shadow: rgba(0,0,0,.35) 3px 3px 6px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                
+            }
+
+            .fab:hover{
+                background: #016AD9;
+            }
+
+            .fab a i{
+                color: white;
+                font-size: 20px;
             }
 
 

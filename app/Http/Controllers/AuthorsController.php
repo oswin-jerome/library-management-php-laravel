@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Author;
+use App\Book;
 
 class AuthorsController extends Controller
 {
@@ -65,8 +66,9 @@ class AuthorsController extends Controller
      */
     public function show($id)
     {
-        
-        
+        $author = Author::find($id);
+        $books = Book::where('author','=',$id)->get();
+        return view('pages.authors.view',['author'=>$author,'books'=>$books]);
     }
 
     /**

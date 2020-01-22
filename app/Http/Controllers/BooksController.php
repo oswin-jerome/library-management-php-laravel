@@ -7,6 +7,7 @@ use App\Department;
 use App\Author;
 use App\Category;
 use App\Book;
+use App\Transaction;
 class BooksController extends Controller
 {
     /**
@@ -87,7 +88,9 @@ class BooksController extends Controller
      */
     public function show($id)
     {
-        //
+        $members = Transaction::where('book_id','=',$id)->get();
+        $book = Book::find($id);
+        return view('pages.books.view',['book'=>$book,'members'=>$members]);
     }
 
     /**

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Category;
+use App\Book;
 class CategoriesController extends Controller
 {
     /**
@@ -65,7 +66,9 @@ class CategoriesController extends Controller
      */
     public function show($id)
     {
-        //
+        $books = Book::where('category','=',$id)->get();
+        $category = Category::find($id);
+        return view('pages.categories.view',['books'=>$books,'category'=>$category]);
     }
 
     /**

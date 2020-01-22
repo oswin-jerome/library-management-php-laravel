@@ -74,6 +74,9 @@
             <div class="text-center justify-content-center d-flex mt-5">
                 {{$categories}}
             </div>
+            <div class="fab">
+                <a href="categories/create/"><i class="fas fa-plus"></i></a>
+            </div>
         </div>
 
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css">
