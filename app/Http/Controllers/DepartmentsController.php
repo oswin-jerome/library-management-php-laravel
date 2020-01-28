@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Department;
+use App\Member;
+use App\Transaction;
 class DepartmentsController extends Controller
 {
     /**
@@ -68,7 +70,18 @@ class DepartmentsController extends Controller
      */
     public function show($id)
     {
-        //
+        $department = Department::find($id);
+        $members = Member::where('dept','=',$id)->get();
+        $memberIDS = [];
+        foreach ($members as $key => $value) {
+            
+            array_push($memberIDS,$value->id);
+        }
+        $books = Transaction::whereIn('member_id',$memberIDS)->get();
+
+        // print_r($books);        
+
+        return view('pages.departments.view',['department'=>$department,'members'=>$members,'books'=>$books]);
     }
 
     /**

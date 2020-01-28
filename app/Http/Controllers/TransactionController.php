@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Transaction;
-
+use App\Book;
 class TransactionController extends Controller
 {
     /**
@@ -37,15 +37,25 @@ class TransactionController extends Controller
     public function store(Request $request)
     {
         //
+
+        $book = Book::find($request->bookId);
+        if($book->stock == 0)
+            return redirect('issue_book')->with('error','Book not is stock');
+
         $transaction = new Transaction();
         $transaction->book_id = $request->bookId;
         $transaction->member_id = $request->memberID;
-        $transaction->rented_at = date('Y-m-d h:m:s');
+        $transaction->rented_at = date('Y-m-d H:i:s');
         // $transaction->returned_at = null;
         $transaction->isReturned = 0;
 
         $chk = $transaction->save();
         if($chk){
+
+            $book = Book::find($request->bookId);
+            $book->stock = 0;
+            $book->save();
+
             return redirect('issue_book')->with('success','Book issued successfully');
         }else{
             return redirect('issue_book')->with('error','Error in issuing book');
@@ -83,7 +93,16 @@ class TransactionController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $trans = Transaction::find($id);
+        $trans->isReturned = 1;
+        $trans->returned_at = date('Y-m-d H:i:s');
+        $trans->save();
+
+        $book = Book::find($trans->book_id);
+        $book->stock = 1;
+        $book->save();
+
+        return redirect('members/'.$trans->member_id)->with('success','Book returned successfully');
     }
 
     /**

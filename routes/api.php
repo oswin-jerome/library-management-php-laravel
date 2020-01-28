@@ -53,6 +53,7 @@ Route::get('/getbook/{id}',function($id){
         return ['msg'=>false];
     }
 });
+
 Route::get('/getmember/{id}',function($id){
 
     $book = App\Member::find($id);
@@ -62,4 +63,14 @@ Route::get('/getmember/{id}',function($id){
     }else{
         return ['msg'=>false];
     }
+});
+
+
+
+Route::get('/getBRPM',function(){
+
+    $trans = App\Transaction::select(DB::raw('count(*),MONTH(rented_at)'))->groupBy('MONTH(rented_at)')->get();
+
+    return(['data'=>$trans]);
+
 });

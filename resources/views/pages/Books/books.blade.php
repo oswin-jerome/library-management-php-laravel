@@ -74,6 +74,7 @@
                         <th scope="col">Book Name</th>
                         <th scope="col">Author</th>
                         <th scope="col">Category</th>
+                        <th scope="col">Stock</th>
                         {{-- <th scope="col" class="contols">Controls</th> --}}
                         </tr>
                     </thead>
@@ -81,16 +82,23 @@
                         
                         @foreach ($books as $book)
                             
-                            <tr class="cust bg-white">
-                                <th scope="row" class="">{{$book->id}}</th>
-                                <td>{{$book->name}}</td>
-                                <td>{{$book->auth->name}}</td>
-                                <td>{{$book->cate->name}}</td>
-                                <td class="contols">
-                                    <a href="/books/{{$book->id}}/edit" class="btn-primary btn btn-sm mr-2"> <i class="fas fa-pencil-alt text-small"></i> &nbsp; Edit</a>
-                                    <a href="/books/{{$book->id}}" class="btn-warning text-white btn btn-sm"> <i class="far fa-eye"></i> &nbsp; View</a>
-                                </td>
-                            </tr>
+                            <div>
+                                <tr class="cust bg-white">
+                                    <th scope="row" class="">{{$book->id}}</th>
+                                    <td>{{$book->name}}</td>
+                                    <td>{{$book->auth->name}}</td>
+                                    <td>{{$book->cate->name}}</td>
+                                    <td>@if ($book->stock == 0)
+                                        <p class="text-danger p">Out of stock</p>
+                                    @else
+                                        <p class="text-success p">Available</p>
+                                    @endif</td>
+                                    <td class="contols">
+                                        <a href="/books/{{$book->id}}/edit" class="btn-primary btn btn-sm mr-2"> <i class="fas fa-pencil-alt text-small"></i> &nbsp; Edit</a>
+                                        <a href="/books/{{$book->id}}" class="btn-warning text-white btn btn-sm"> <i class="far fa-eye"></i> &nbsp; View</a>
+                                    </td>
+                                </tr>
+                            </div>
                             
                         @endforeach
                     </tbody>
@@ -114,6 +122,11 @@
                 /* background-color: red !important; */
                 box-shadow: rgba(0,0,0,.15) 0px 3px 8px;
                 border-radius: 5px;
+                position: relative;
+            }
+
+            .cust td{
+                padding: 12px 12px 10px 12px;
             }
             .contols{
                 text-align: center;
@@ -122,6 +135,10 @@
             .table{
                 border-collapse:separate; 
                 border-spacing: 0 15px; 
+            }
+
+            .p{
+                margin: 0px;            
             }
 
             .fab{

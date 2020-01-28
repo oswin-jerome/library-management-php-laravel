@@ -35,16 +35,19 @@
             </div>
             
         </div>
-        
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
         <script>
+
+            
+
             var ctx = document.getElementById('myChart').getContext("2d");
             var gradientFill = ctx.createLinearGradient(0, 800, 00, 00);
-            gradientFill.addColorStop(1, "rgba(113, 88, 226, 1)");
-            gradientFill.addColorStop(0, "rgba(255, 255, 255, 0.0)");
+            gradientFill.addColorStop(1, "rgba(61, 90, 241, 0.8)");
+            gradientFill.addColorStop(0, "rgba(61, 90, 241, 0.0)");
 
             var gradientFill2 = ctx.createLinearGradient(0, 800, 00, 00);
-            gradientFill2.addColorStop(1, "rgba(255, 0, 0, 1)");
-            gradientFill2.addColorStop(0, "rgba(255, 255, 255, 0.0)");
+            gradientFill2.addColorStop(1, "rgba(248, 89, 89, 0.8)");
+            gradientFill2.addColorStop(0, "rgba(248, 89, 89, 0.0)");
             console.log(gradientFill)
             var data = {
                 type: 'line',
@@ -54,7 +57,7 @@
                     {
                     label:"Books rented",
                     backgroundColor:gradientFill,
-                    borderColor: '#7158E2',
+                    borderColor: '#3d5af1',
                     data: [
                         100,
                         20, 30, 150,10
@@ -63,7 +66,7 @@
                     {
                     label:"Books returned",
                     backgroundColor:gradientFill2,
-                    borderColor:"red",
+                    borderColor:"#f85959",
                     data: [
                         0,
                         11, 50, 120,50

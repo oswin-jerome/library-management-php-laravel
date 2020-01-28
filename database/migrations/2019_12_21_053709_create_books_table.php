@@ -18,6 +18,7 @@ class CreateBooksTable extends Migration
             $table->string('name');
             $table->integer('category');
             $table->integer('author');
+            $table->integer('stock')->default(1);
             $table->timestamps();
             $table->foreign('category')->references('id')->on('categories');
             $table->foreign('author')->references('id')->on('authors');

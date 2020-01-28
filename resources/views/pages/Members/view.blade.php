@@ -32,7 +32,11 @@
                                     <td>{{$item->book->name}}</td>
                                     <td>{{$item->rented_at}}</td>
                                     <td class="text-right" style="width:20% !important">
-                                        <a href="#" class="btn btn-outline-primary btn-sm">Return</a>
+                                        {{-- <a href="#" class="btn btn-outline-primary btn-sm">Return</a> --}}
+
+                                        {{Form::open(['action' => ['TransactionController@update', $item->id],'method'=>'PUT']) }}
+                                            <input type="submit" class="btn btn-outline-primary btn-sm" value="Return">
+                                        {{ Form::close()}}
                                     </td>
                                 </tr>
                             @endif
