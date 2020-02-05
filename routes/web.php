@@ -14,6 +14,7 @@
 Route::get('/', 'DashboardsController@index');
 Route::get('/dashboard', 'DashboardsController@index');
 Route::get('/pendingbooks','GeneralController@pendingBooks');
+Route::get('/about','GeneralController@about');
 
 Route::resource('authors','AuthorsController');
 Route::resource('categories','CategoriesController');

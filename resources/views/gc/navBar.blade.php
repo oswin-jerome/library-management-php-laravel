@@ -14,6 +14,7 @@
         <li><a @if (Request::is('departments')||Request::is('departments/*')) class="active" @endif href="/departments"> Departments</a></li>
         <li><a @if (Request::is('members')||Request::is('members/*')) class="active" @endif href="/members"> Members</a></li>
         <li><a @if (Request::is('issue_book')||Request::is('issue_book/*')) class="active" @endif href="/issue_book"> Issue Book</a></li>
+        <li><a @if (Request::is('about')||Request::is('about/*')) class="active" @endif href="/about">About</a></li>
     </ul>
 </nav>
 

@@ -34,7 +34,7 @@
                                     <td class="text-right" style="width:20% !important">
                                         {{-- <a href="#" class="btn btn-outline-primary btn-sm">Return</a> --}}
 
-                                        {{Form::open(['action' => ['TransactionController@update', $item->id],'method'=>'PUT']) }}
+                                        {{Form::open(['action' => ['TransactionController@update', $item->id],'method'=>'PUT','class'=>"rtn"]) }}
                                             <input type="submit" class="btn btn-outline-primary btn-sm" value="Return">
                                         {{ Form::close()}}
                                     </td>
@@ -99,4 +99,14 @@
             border-spacing: 0 15px; 
         }
     </style>
+    <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+    crossorigin="anonymous"></script>
+    <script>
+        $(document).ready(()=>{
+            $(".rtn").on("submit", function(){
+                console.log($(this));
+                return confirm("Are you sure?");
+            });
+        });
+    </script>
 @endsection

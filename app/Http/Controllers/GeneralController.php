@@ -44,4 +44,9 @@ class GeneralController extends Controller
 
         
     }
+
+    public function about(){
+
+        return view('gc.about');
+    }
 }
