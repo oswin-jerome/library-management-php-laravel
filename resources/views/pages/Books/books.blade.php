@@ -10,7 +10,7 @@
             </div>
 
 
-             {{Form::open(['action'=>'BooksController@index','method'=>'GET','class'=>'hides','id'=>'form'])}}
+             {{Form::open(['action'=>'BooksController@index','method'=>'GET','class'=>'hide','id'=>'form'])}}
                 <div class="row d-flex justify-content-center align-content-center align-items-center mt-3 shadow-sm border-0 p-1">
                     <div class="form-group">
                         <label for="exampleFormControlSelect1">Find using : </label>
@@ -107,10 +107,10 @@
             <div class="text-center justify-content-center d-flex mt-5">
                 {{$books}}
             </div>
-            <div class="fab">
-                <a href="books/create/"><i class="fas fa-plus"></i></a>
-            </div>
         </div>
+                <div class="fab">
+                    <a href="books/create/"><i class="fas fa-plus"></i></a>
+                </div>
 
 
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css">
@@ -141,7 +141,7 @@
                 margin: 0px;            
             }
 
-            .fab{
+            .faba{
                 position: absolute;
                 bottom: 50px;
                 right: 50px;

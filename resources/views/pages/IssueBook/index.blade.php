@@ -5,7 +5,7 @@
 
         {{Form::open(['action'=>'TransactionController@store','method'=>'POST','class'=>'card px-5 py-3 shadow rounded-lg w-50','id'=>'form'])}}
             {{-- <form action="" class="card px-5 py-3 shadow rounded-lg w-50"> --}}
-                <h3 class="text-center  text-bold mb-5 mt-3 heading">Create a member</h3>
+                <h3 class="text-center  text-bold mb-5 mt-3 heading">Issue a book</h3>
                 <div class="form-group">
                     <label for="bookId">Book ID</label>
                     <input type="text" class="form-control" id="bookId" name="bookId">
@@ -16,6 +16,15 @@
                     <input type="text" class="form-control" id="memberID" name="memberID">
                     <small class="form-text " id="memSts"></small>
                 </div>
+
+                {{-- <div class="form-group">
+                    <select name="n" id="n">
+                        @foreach ($books as $book)
+                            <option value="{{$book->id}}">{{$book->name}}</option>
+                        @endforeach
+                    </select>
+                </div> --}}
+
                 <div class="text-center mb-2">
                     <button type="submit" id="ibs" class="btn btn-primary" name="submit">Issue book</button>
                 </div>

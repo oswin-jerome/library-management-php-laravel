@@ -13,6 +13,7 @@
 
 Route::get('/', 'DashboardsController@index');
 Route::get('/dashboard', 'DashboardsController@index');
+Route::get('/pendingbooks','GeneralController@pendingBooks');
 
 Route::resource('authors','AuthorsController');
 Route::resource('categories','CategoriesController');

@@ -20,7 +20,8 @@
                     @foreach ($members as $item)
                         <tr class="bg-white cust">
                             <th scope="row">{{$item->id}}</th>
-                            <td>{{$item->name}}</td>
+                            {{-- <td>{{$item->name}}</td> --}}
+                            <td><a href="/members/{{$item->id}}">{{$item->name}}</a></td>
                             <td>{{$item->department->name}}</td>
                             <td>@if ($item->type == 1)
                                 Student
@@ -44,6 +45,7 @@
                 <thead class="text-white" style="background: #3f51b5">
                     <tr>
                         <th scope="col">Transaction ID</th>
+                        <th scope="col">Member Name</th>
                         <th scope="col">Book Name</th>
                         <th scope="col">rented at</th>
                         <th scope="col">returned at</th>
@@ -54,6 +56,7 @@
                     @foreach ($books as $item)
                         <tr class="bg-white cust">
                             <th scope="row">{{$item->id}}</th>
+                            <td><a href="/members/{{$item->member->id}}">{{$item->member->name}}</a></td>
                             <td>{{$item->book->name}}</td>
                             <td>{{$item->rented_at}}</td>
                             <td>@if ($item->returned_at=="")

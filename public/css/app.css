@@ -9,7 +9,12 @@
   grid-gap: 17px;
 }
 
+#dash .top-bar .item:hover {
+  box-shadow: rgba(0, 0, 0, 0.422) 3px 3px 16px;
+}
+
 #dash .top-bar .item {
+  text-decoration: none;
   cursor: pointer;
   border-radius: 5px;
   padding: 25px;
@@ -147,6 +152,7 @@
   background-color: #2C3A47;
   min-height: 100vh;
   max-width: 100%;
+  position: relative;
 }
 
 #myNav .logo-section {
@@ -188,13 +194,19 @@
 
 #myNav ul a:active {
   color: #25CCF7;
-  background-color: rgba(37, 204, 247, 0.12);
+  background-color: rgba(37, 204, 247, 0.22);
+}
+
+.active {
+  color: #25CCF7;
+  background-color: rgba(37, 204, 247, 0.22);
 }
 
 .fab {
-  position: absolute;
+  position: fixed;
   bottom: 50px;
   right: 50px;
+  z-index: 999;
   background: #007bff;
   padding: 20px;
   color: rebeccapurple;
@@ -210,6 +222,10 @@
           justify-content: center;
 }
 
+.container-fluid {
+  position: relative;
+}
+
 .fab a i {
   color: white;
   font-size: 20px;
@@ -217,5 +233,9 @@
 
 .fab:hover {
   background: #016AD9;
+}
+
+.cust td {
+  padding: 12px 12px 10px 12px !important;
 }
 

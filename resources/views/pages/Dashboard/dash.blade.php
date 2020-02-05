@@ -8,27 +8,28 @@
             
             <div class="top-bar">
 
-                <div class="item animated bounceIn">
+                <div class="item animated bounceIn ">
                 <div class="pattern "></div>
                     <p class="title">  Total Members</p>
                     <p class="value">{{$total_members}}</p>
                 </div>
-                <div class="item animated bounceIn">
+                <div class="item animated bounceIn ">
                     <div class="pattern "></div>
                     <p class="title">Total no. of books</p>
                     <p class="value">{{$total_books}}</p>
                 </div>
-                <div class="item animated bounceIn">
+                <div class="item animated bounceIn ">
                     <div class="pattern"></div>
-                    <p class="title">Books to be returned</p>
-                    <p class="value">{{count($btor)}}</p>
-                </div>
-                <div class="item animated bounceIn">
-                    <div class="pattern"></div>
-                    
                     <p class="title">No. of books taken</p>
                     <p class="value">{{$booksTaken}}</p>
                 </div>
+                <a href="pendingbooks" class="item animated bounceIn">
+                    <div class=" ">
+                        <div class="pattern"></div>
+                        <p class="title">Books to be returned</p>
+                        <p class="value">{{count($btor)}}</p>
+                    </div>
+                </a>
             </div>
             <div id="chart">
                 <canvas id="myChart"></canvas>

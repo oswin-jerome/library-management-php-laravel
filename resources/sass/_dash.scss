@@ -7,8 +7,12 @@
         display: grid;
         grid-template-columns: 1fr 1fr 1fr 1fr;
         grid-gap: 17px;
-
+        .item:hover{
+            box-shadow: rgba(0, 0, 0, 0.422) 3px 3px 16px;
+            
+        }
         .item {
+            text-decoration: none;
             cursor: pointer;
             border-radius: 5px;
             padding: 25px;

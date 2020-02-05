@@ -39,6 +39,7 @@
     // height: 100%;
     min-height: 100vh;
     max-width: 100%;
+    position: relative;
 
     .logo-section {
         display: flex;
@@ -55,6 +56,7 @@
     }
 
     ul {
+        // position: fixed;
         margin-top: 30px;
         padding: 0;
 
@@ -78,17 +80,23 @@
 
         a:active {
             color: #25CCF7;
-            background-color: rgba(37, 204, 247, 0.12);
+            background-color: rgba(37, 204, 247, 0.22);
         }
     }
 
 }
 
+.active{
+    color: #25CCF7;
+    background-color: rgba(37, 204, 247, 0.22);
+}
+
 
 .fab{
-    position: absolute;
+    position: fixed;
     bottom: 50px;
     right: 50px;
+    z-index: 999;
     background: #007bff;
     padding: 20px;
     color: rebeccapurple;
@@ -102,6 +110,10 @@
     
 }
 
+.container-fluid{
+    position: relative;
+}
+
 .fab a i{
     color: white;
     font-size: 20px;
@@ -109,4 +121,9 @@
 
 .fab:hover{
     background: #016AD9;
+}
+
+
+.cust td{
+    padding: 12px 12px 10px 12px !important;
 }

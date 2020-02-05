@@ -17,6 +17,7 @@ class BooksController extends Controller
      */
     public function index()
     {
+        $pages = 10;
         $categories = Category::all();
         $parms = $_GET;
         
@@ -31,15 +32,15 @@ class BooksController extends Controller
                 foreach ($aut as $key => $value) {
                     array_push($authors,$value->id);
                 }
-                $books = Book::where([['category','LIKE','%'.$_GET['showCate'].'%']])->whereIn('author',$authors)->orderBy($_GET['filter'],$_GET['arrange'])->paginate(15)->appends(request()->query());
+                $books = Book::where([['category','LIKE','%'.$_GET['showCate'].'%']])->whereIn('author',$authors)->orderBy($_GET['filter'],$_GET['arrange'])->paginate($pages)->appends(request()->query());
                 return view('pages.books.books',['books'=>$books,'parms'=>$parms,'categories'=>$categories]);
             }
 
-            $books  = Book::where([[$_GET['key'],'LIKE','%'.$_GET['value'].'%'],['category','LIKE','%'.$_GET['showCate'].'%']])->orderBy($_GET['filter'],$_GET['arrange'])->paginate(15)->appends(request()->query());
+            $books  = Book::where([[$_GET['key'],'LIKE','%'.$_GET['value'].'%'],['category','LIKE','%'.$_GET['showCate'].'%']])->orderBy($_GET['filter'],$_GET['arrange'])->paginate($pages)->appends(request()->query());
             return view('pages.books.books',['books'=>$books,'parms'=>$parms,'categories'=>$categories]);
 
         }else{
-            $books = Book::paginate(15);
+            $books = Book::paginate($pages);
             return view('pages.books.books',['books'=>$books,'categories'=>$categories,'parms'=>$parms]);
         }
     }

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Transaction;
 use App\Book;
+use App\Member;
 class TransactionController extends Controller
 {
     /**
@@ -14,8 +15,9 @@ class TransactionController extends Controller
      */
     public function index()
     {
-        
-        return view('pages.IssueBook.index');
+        $books = Book::all();
+        $members = Member::all();
+        return view('pages.IssueBook.index',['books'=>$books,'members'=>$members]);
     }
 
     /**
@@ -40,7 +42,7 @@ class TransactionController extends Controller
 
         $book = Book::find($request->bookId);
         if($book->stock == 0)
-            return redirect('issue_book')->with('error','Book not is stock');
+            return redirect('issue_book')->with('error','Book not in stock');
 
         $transaction = new Transaction();
         $transaction->book_id = $request->bookId;
