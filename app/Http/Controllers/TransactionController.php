@@ -15,7 +15,7 @@ class TransactionController extends Controller
      */
     public function index()
     {
-        $books = Book::all();
+        $books = Book::where('stock','=',1)->get();
         $members = Member::all();
         return view('pages.IssueBook.index',['books'=>$books,'members'=>$members]);
     }

@@ -16,7 +16,7 @@ class DashboardsController extends Controller
     function index () {
 
         // Charts
-        
+        lineChart();
         $memberChart = createMemberChart();
         $memberTypeChart = createMemberTypeChart();
         $bookInC =  createBooksInCategoryChart();
@@ -119,4 +119,10 @@ function createBooksInCategoryChart(){
     ->backgroundcolor($borderColors);
 
     return $bookChart;
+}
+
+
+function lineChart(){
+    $book = Book::select(DB::raw("count(*) as count,MONTH(created_at) as month"))->groupBy(DB::raw("MONTH(created_at)"))->whereRaw("YEAR(created_at) = 2020")->get();
+    echo($book);
 }

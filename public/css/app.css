@@ -145,7 +145,7 @@
 
 #layout {
   display: grid;
-  grid-template-columns: 1fr 5fr;
+  grid-template-columns: 250px 5fr;
 }
 
 #myNav {
@@ -162,6 +162,8 @@
           justify-content: center;
   -webkit-box-align: center;
           align-items: center;
+  position: fixed;
+  width: 250px;
   background-color: rgba(0, 0, 0, 0.205);
 }
 
@@ -171,8 +173,11 @@
 }
 
 #myNav ul {
+  position: fixed;
   margin-top: 30px;
+  width: 250px;
   padding: 0;
+  top: 180px;
 }
 
 #myNav ul li {

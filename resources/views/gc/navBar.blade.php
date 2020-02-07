@@ -1,4 +1,5 @@
 <nav id="myNav">
+    
     <div class="logo-section">
         
         <img src="{{asset('images/gb2.svg')}}"  class="logo" alt="">
@@ -6,7 +7,6 @@
     </div>
     <ul>
         {{-- {{Request::path()}} --}}
-        
         <li><a @if (Request::is('dashboard')) class="active" @endif href="/dashboard"> Dashboard</a></li>
         <li><a @if (Request::is('books')||Request::is('books/*')) class="active" @endif href="/books"> Books</a></li>
         <li><a @if (Request::is('authors')||Request::is('authors/*')) class="active" @endif href="/authors"> Authors</a></li>

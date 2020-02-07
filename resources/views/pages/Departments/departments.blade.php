@@ -50,6 +50,7 @@
                 </div>
             {{Form::close()}}
 
+            @if (count($departments)>0)
             <table class="table table-borderless" id="myTable">
                 <thead class="">
                     <tr>
@@ -74,6 +75,10 @@
                     @endforeach
                 </tbody>
                 </table>
+            @else
+                <h1 class="mt-5 heading text-center text-grey">No Departments</h1>
+            @endif
+            
             <div class="text-center justify-content-center d-flex mt-5">
                 {{$departments}}
             </div>

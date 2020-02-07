@@ -3,8 +3,9 @@
 @section('content')
     <div>
         <h1 class="text-center mt-5 text-secondary" style="font-size:50px"> <span class=" text-muted">{{$book->id}} : </span> {{$book->name}}</h1>
-        <h4 class="text-center mt-3">by {{$book->auth->name}}</h4>
-        <h4 class="text-center mt-3">{{$book->cate->name}}</h4>
+        <h4 class="text-center mt-3 grey">by {{$book->auth->name}}</h4>
+        <h4 class="text-center mt-3 grey">{{$book->cate->name}}</h4>
+        <h6 class="text-center mt-3 text-success">{{$book->detials}}</h6>
 
 
         <div class="rentedBooks card p-3 mb-4 ml-2 mr-2" style="margin-top:60px">
@@ -51,6 +52,10 @@
         .table{
             border-collapse:separate; 
             border-spacing: 0 15px; 
+        }
+
+        .grey{
+            color: #818181;
         }
     </style>
 @endsection

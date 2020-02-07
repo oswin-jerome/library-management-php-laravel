@@ -18,16 +18,16 @@ class CategoriesController extends Controller
 
         if(isset($_GET['submit'])){
             if($_GET['key'] =='id'){
-                $categories  = Category::where('id','LIKE','%'.$_GET['value'].'%')->orderBy($_GET['filter'],$_GET['arrange'])->paginate(15)->appends(request()->query());
+                $categories  = Category::where('id','LIKE','%'.$_GET['value'].'%')->orderBy($_GET['filter'],$_GET['arrange'])->paginate(10)->appends(request()->query());
                 return view('pages.categories.categories',['categories'=>$categories,'parms'=>$parms]);
             }
             if($_GET['key'] =='name'){
-                $categories  = Category::where('name','LIKE','%'.$_GET['value'].'%')->orderBy($_GET['filter'],$_GET['arrange'])->paginate(1)->appends(request()->query());
+                $categories  = Category::where('name','LIKE','%'.$_GET['value'].'%')->orderBy($_GET['filter'],$_GET['arrange'])->paginate(10)->appends(request()->query());
                 return view('pages.categories.categories',['categories'=>$categories,'parms'=>$parms]);
             }
 
         }else{
-            $categories  = Category::paginate(15);
+            $categories  = Category::paginate(10);
         
             return view('pages.categories.categories',['categories'=>$categories,'parms'=>$parms]);
         }

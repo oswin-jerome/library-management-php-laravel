@@ -29,7 +29,7 @@
                             @if ($item->isReturned==0)
                                 <tr class="bg-white cust">
                                     <th scope="row">{{$item->id}}</th>
-                                    <td>{{$item->book->name}}</td>
+                                    <td><a href="/books/{{$item->book->id}}">{{$item->book->name}}</a></td>
                                     <td>{{$item->rented_at}}</td>
                                     <td class="text-right" style="width:20% !important">
                                         {{-- <a href="#" class="btn btn-outline-primary btn-sm">Return</a> --}}
@@ -69,7 +69,7 @@
                         @foreach ($rented as $item)
                             <tr class="bg-white cust">
                                 <th scope="row">{{$item->id}}</th>
-                                <td>{{$item->book->name}}</td>
+                                <td><a href="/books/{{$item->book->id}}">{{$item->book->name}}</a></td>
                                 <td>{{$item->rented_at}}</td>
                                 <td>@if ($item->returned_at=="")
                                     <span class="text-danger">Not returned</span>

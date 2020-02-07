@@ -92,9 +92,9 @@
                             @foreach ($books as $item)
                                 <tr class="bg-white cust">
                                     <th scope="row">{{$item->id}}</th>
-                                    <td>{{$item->book->name}}</td>
-                                    <td>{{$item->member->name}}</td>
-                                    <td>{{$item->member->department->name}}</td>
+                                    <td><a href="/books/{{$item->book->id}}">{{$item->book->name}}</a></td>
+                                    <td><a href="/members/{{$item->member->id}}">{{$item->member->name}}</a></td>
+                                    <td><a href="/departments/{{$item->member->department->id}}">{{$item->member->department->name}}</a></td>
                                     <td>{{$item->rented_at}}</td>
                                     <td class="text-right" style="width:20% !important">
                                         {{-- <a href="#" class="btn btn-outline-primary btn-sm">Return</a> --}}

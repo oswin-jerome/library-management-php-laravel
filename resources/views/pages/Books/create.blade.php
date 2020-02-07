@@ -19,6 +19,10 @@
                     <label for="name">Name : </label>
                     <input type="text" id="name" name="name" class="form-control" required>
                 </div>
+                <div class="form-group">    
+                    <label for="detials">Detials : </label>
+                    <input type="text" id="detials" name="detials" class="form-control" required>
+                </div>
 
             
                 <div class="d-flex justify-content-center mt-3 ">
@@ -29,6 +33,7 @@
                             @if (count($authors)<1)
                                 <option disabled>Create authors first</option>
                             @else
+                            <option value selected disabled hidden>select a Author</option>
                                 @foreach ($authors as $dept)
                                     <option value="{{$dept->id}}">{{$dept->name}}</option>
                                 @endforeach
@@ -42,6 +47,7 @@
                             @if (count($categories)<1)
                                 <option disabled>Create categoried first</option>
                             @else
+                            <option value selected disabled hidden>select a Category</option>
                                 @foreach ($categories as $category)
                                     <option value="{{$category->id}}">{{$category->name}}</option>
                                 @endforeach

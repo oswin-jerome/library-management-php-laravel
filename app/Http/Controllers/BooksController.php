@@ -71,6 +71,7 @@ class BooksController extends Controller
         $book->name = $request['name'];
         $book->category = $request['category'];
         $book->author = $request['author'];
+        $book->detials = $request['detials'];
 
         $chk = $book->save();
         if($chk){
@@ -123,6 +124,7 @@ class BooksController extends Controller
         $book->name = $request['name'];
         $book->category = $request['category'];
         $book->author = $request['author'];
+        $book->detials = $request['detials'];
 
         $chk = $book->save();
         if($chk){

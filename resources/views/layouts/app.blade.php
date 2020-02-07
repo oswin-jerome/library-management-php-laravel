@@ -13,6 +13,9 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.css">
         {{-- Style sheet --}}
         <link rel="stylesheet" href="{{asset('css/app.css')}}">
+        <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+        crossorigin="anonymous"></script>
+        <script src="{{asset('js/app.js')}}"></script>
     </head>
     <body>
     

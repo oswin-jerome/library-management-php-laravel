@@ -112,12 +112,12 @@
             }
 
             .chart-container{
-                /* width: 90%; */
+                width: 95%;
                 margin: auto;
                 display: grid;
                 /* grid-template-columns: 3fr 1fr; */
-                grid-template-areas: 'memberD memberD memberD memberT'
-                                    'bookINC bookINC bookINC bookINC'
+                grid-template-areas: 'memberD memberD memberD memberT memberT'
+                                    'bookINC bookINC bookINC bookINC bookINC'
                 ;
                 grid-column-gap: 25px;
                 grid-row-gap: 50px;

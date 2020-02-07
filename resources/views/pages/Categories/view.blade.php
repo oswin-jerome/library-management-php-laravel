@@ -19,9 +19,9 @@
                     @foreach ($books as $item)
                         <tr class="bg-white cust">
                             <th scope="row">{{$item->id}}</th>
-                            <td>{{$item->name}}</td>
-                            <td>{{$item->cate->name}}</td>
-                            <td>{{$item->auth->name}}</td>
+                            <td><a href="/books/{{$item->id}}">{{$item->name}}</a></td>
+                            <td><a href="/categories/{{$item->cate->id}}">{{$item->cate->name}}</a></td>
+                            <td><a href="/authors/{{$item->auth->id}}">{{$item->auth->name}}</a></td>
                             
                         </tr>
                     @endforeach

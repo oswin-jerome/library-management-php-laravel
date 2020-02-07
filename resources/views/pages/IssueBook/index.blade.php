@@ -29,8 +29,8 @@
                 <h3 class="text-center  text-bold mb-5 mt-3 heading">Issue a book</h3>
                 <div class="form-group">
                     <label for="bookId2">Example select</label>
-                    <select name="bookId" class="form-control" id="bookId2">
-                        <option>select a Book</option>
+                    <select name="bookId" class="form-control" id="bookId2" required>
+                        <option value selected disabled hidden>select a Book</option>
                         @foreach ($books as $book)
                             <option value={{$book->id}}>{{$book->name}} &nbsp;&nbsp;&nbsp;({{$book->id}})</option>
                         @endforeach
@@ -38,8 +38,8 @@
                 </div>
                 <div class="form-group">
                     <label for="memberID2">Example select</label>
-                    <select name="memberID" class="form-control" id="memberID2">
-                        <option>select a Member</option>
+                    <select name="memberID" class="form-control" id="memberID2" required>
+                        <option value selected disabled hidden>select a Member</option>
                         @foreach ($members as $book)
                             <option value={{$book->id}}>{{$book->name}} &nbsp;&nbsp;&nbsp;({{$book->id}})</option>
                         @endforeach
