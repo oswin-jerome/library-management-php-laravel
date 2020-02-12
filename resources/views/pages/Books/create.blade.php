@@ -16,6 +16,10 @@
                 </div> --}}
 
                 <div class="form-group">    
+                    <label for="id">ID : </label>
+                    <input type="text" id="id" name="id" class="form-control" required>
+                </div>
+                <div class="form-group">    
                     <label for="name">Name : </label>
                     <input type="text" id="name" name="name" class="form-control" required>
                 </div>

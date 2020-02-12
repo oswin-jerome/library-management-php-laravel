@@ -71,6 +71,7 @@ class BooksController extends Controller
     {
 
         $book = new Book();
+        $book->id = $request['id'];
         $book->name = $request['name'];
         $book->category = $request['category'];
         $book->authors = $request['author'];
