@@ -21,7 +21,11 @@
                             <th scope="row">{{$item->id}}</th>
                             <td><a href="/books/{{$item->id}}">{{$item->name}}</a></td>
                             <td><a href="/categories/{{$item->cate->id}}">{{$item->cate->name}}</a></td>
-                            <td><a href="/authors/{{$item->auth->id}}">{{$item->auth->name}}</a></td>
+                            {{-- <td><a href="/authors/{{$item->auth->id}}">{{$item->auth->name}}</a></td> --}}
+                            <td>@foreach ($item->author as $item)
+                                <a href="/authors/{{$item->id}}">{{$item->name}}</a>,
+                                {{-- {{$item->name.' ,' }} --}}
+                            @endforeach</td>
                             
                         </tr>
                     @endforeach

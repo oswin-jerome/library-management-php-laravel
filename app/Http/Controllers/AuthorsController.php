@@ -68,7 +68,7 @@ class AuthorsController extends Controller
     public function show($id)
     {
         $author = Author::find($id);
-        $books = Book::where('author','=',$id)->get();
+        $books = Book::whereJsonContains('authors',$id)->get();
         return view('pages.authors.view',['author'=>$author,'books'=>$books]);
     }
 

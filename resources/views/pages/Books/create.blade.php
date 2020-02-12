@@ -28,12 +28,12 @@
                 <div class="d-flex justify-content-center mt-3 ">
                     <div class="form-group flex-grow-1">
                         <label for="exampleFormControlSelect1">Author : </label>
-                        <select class="form-control" id="exampleFormControlSelect1" name="author" required>
+                        <select class="form-control" id="exampleFormControlSelect1" placeholder="sdsd" name="author[]" multiple required>
 
                             @if (count($authors)<1)
-                                <option disabled>Create authors first</option>
+                                {{-- <option disabled>Create authors first</option> --}}
                             @else
-                            <option value selected disabled hidden>select a Author</option>
+                            {{-- <option value selected disabled hidden>select a Author</option> --}}
                                 @foreach ($authors as $dept)
                                     <option value="{{$dept->id}}">{{$dept->name}}</option>
                                 @endforeach

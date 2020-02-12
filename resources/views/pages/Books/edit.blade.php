@@ -3,6 +3,11 @@
 
 @section('content')
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.0/css/select2.min.css">
+{{-- {{ $book->author }} --}}
+{{-- @foreach ($authors as $author)
+    {{$author->id}}
+    <option @if ($author->id == in_array($author->id,[1,2])) selected @endif value="{{$author->id}}">{{$author->name}}</option>
+@endforeach --}}
     <div id="createCate" class="container-fluid d-flex justify-content-center align-items-center h-100 flex-column">
             {{Form::open(['action' => ['BooksController@update',$book->id],'method'=>'PUT',"class"=>"card px-5 py-3 shadow rounded-lg w-auto e border-0"])}}
                 <h3 class="text-center  text-bold mb-5 mt-3 heading">Update a book</h3>
@@ -21,13 +26,14 @@
                 <div class="d-flex justify-content-center ">
                     <div class="form-group flex-grow-1">
                         <label for="exampleFormControlSelect1">Author : </label>
-                        <select class="form-control" id="exampleFormControlSelect1" name="author" required>
-
+                        <select class="form-control" id="exampleFormControlSelect1" name="author" multiple required>
+                            {{-- {{ $authors }} --}}
                             @if (count($authors)<1)
                                 <option disabled>Create authors first</option>
                             @else
                                 @foreach ($authors as $author)
-                                    <option @if ($author->id == $book->author) selected @endif value="{{$author->id}}">{{$author->name}}</option>
+                                <option @if ($author->id == in_array($author->id,$book->authors)) selected @endif value="{{$author->id}}">{{$author->name}}</option>
+                                    {{-- <option @if ($author->id == $book->author) selected @endif value="{{$author->id}}">{{$author->name}}</option> --}}
                                 @endforeach
                             @endif
                         </select>

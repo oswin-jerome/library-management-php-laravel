@@ -8,6 +8,7 @@ use App\Author;
 use App\Category;
 use App\Book;
 use App\Transaction;
+
 class BooksController extends Controller
 {
     /**
@@ -30,9 +31,10 @@ class BooksController extends Controller
             if($_GET['key']=='author'){
                 $aut = Author::where('name','LIKE','%'.$_GET['value'].'%')->get();
                 foreach ($aut as $key => $value) {
-                    array_push($authors,$value->id);
+                    array_push($authors,strval($value->id));
                 }
-                $books = Book::where([['category','LIKE','%'.$_GET['showCate'].'%']])->whereIn('author',$authors)->orderBy($_GET['filter'],$_GET['arrange'])->paginate($pages)->appends(request()->query());
+                // print_r($authors);
+                $books = Book::where([['category','LIKE','%'.$_GET['showCate'].'%']])->whereJsonContains('authors',$authors)->orderBy($_GET['filter'],$_GET['arrange'])->paginate($pages)->appends(request()->query());
                 return view('pages.books.books',['books'=>$books,'parms'=>$parms,'categories'=>$categories]);
             }
 
@@ -67,10 +69,11 @@ class BooksController extends Controller
      */
     public function store(Request $request)
     {
+
         $book = new Book();
         $book->name = $request['name'];
         $book->category = $request['category'];
-        $book->author = $request['author'];
+        $book->authors = $request['author'];
         $book->detials = $request['detials'];
 
         $chk = $book->save();

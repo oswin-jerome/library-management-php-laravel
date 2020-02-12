@@ -3,7 +3,10 @@
 @section('content')
     <div>
         <h1 class="text-center mt-5 text-secondary" style="font-size:50px"> <span class=" text-muted">{{$book->id}} : </span> {{$book->name}}</h1>
-        <h4 class="text-center mt-3 grey">by {{$book->auth->name}}</h4>
+        {{-- <h4 class="text-center mt-3 grey">by {{$book->author[0]->name}}</h4> --}}
+        <h4 class="text-center mt-3 grey">by @foreach ($book->author as $item)
+            {{$item->name.' ,' }}
+        @endforeach</h4>
         <h4 class="text-center mt-3 grey">{{$book->cate->name}}</h4>
         <h6 class="text-center mt-3 text-success">{{$book->detials}}</h6>
 

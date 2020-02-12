@@ -17,12 +17,12 @@ class CreateBooksTable extends Migration
             $table->integer('id')->autoIncrement();
             $table->string('name');
             $table->integer('category');
-            $table->integer('author');
+            $table->json('authors');
             $table->integer('stock')->default(1);
             $table->timestamps();
             $table->string('detials');
             $table->foreign('category')->references('id')->on('categories');
-            $table->foreign('author')->references('id')->on('authors');
+            // $table->foreign('author')->references('id')->on('authors');
         });
     }
 

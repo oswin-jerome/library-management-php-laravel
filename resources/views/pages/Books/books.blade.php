@@ -86,7 +86,10 @@
                                 <tr class="cust bg-white">
                                     <th scope="row" class="">{{$book->id}}</th>
                                     <td>{{$book->name}}</td>
-                                    <td>{{$book->auth->name}}</td>
+                                    {{-- <td>{{$book->author[0]->name}}</td> --}}
+                                    <td>@foreach ($book->author as $item)
+                                        {{$item->name.' ,' }}
+                                    @endforeach</td>
                                     <td>{{$book->cate->name}}</td>
                                     <td>@if ($book->stock == 0)
                                         <p class="text-danger p">Out of stock</p>
