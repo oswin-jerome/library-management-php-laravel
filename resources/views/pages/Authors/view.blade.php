@@ -14,7 +14,6 @@
                         <th scope="col">Book Name</th>
                         <th scope="col">Category</th>
                         <th scope="col">Book added at</th>
-                        {{-- <th scope="col">Dept</th> --}}
                     </tr>
                 </thead>
                 <tbody>
@@ -24,11 +23,6 @@
                             <td><a href="/books/{{$item->id}}">{{$item->name}}</a></td>
                             <td><a href="/categories/{{$item->cate->id}}">{{$item->cate->name}}</a></td>
                             <td>{{$item->created_at}}</td>
-                            {{-- <td>@if ($item->returned_at=="")
-                                <span class="text-danger">Not returned</span>
-                            @else
-                                {{$item->returned_at}}
-                            @endif</td> --}}
                         </tr>
                     @endforeach
                 </tbody>
@@ -39,7 +33,6 @@
     </div>
     <style>
         .cust{
-            /* background-color: red !important; */
             box-shadow: rgba(0,0,0,.15) 0px 3px 8px;
             border-radius: 15px !important;
             justify-content: center;

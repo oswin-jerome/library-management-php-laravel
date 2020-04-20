@@ -4,31 +4,10 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.0/css/select2.min.css">
     <div id="issueBook" class="container-fluid d-flex justify-content-center align-items-center h-100 flex-column">
 
-        {{-- {{Form::open(['action'=>'TransactionController@store','method'=>'POST','class'=>'card px-5 py-3 shadow rounded-lg w-50','id'=>'form'])}}
-            {{-- <form action="" class="card px-5 py-3 shadow rounded-lg w-50"> --}}
-                {{-- <h3 class="text-center  text-bold mb-5 mt-3 heading">Issue a book</h3>
-                <div class="form-group">
-                    <label for="bookId">Book ID</label>
-                    <input type="text" class="form-control" id="bookId" name="bookId">
-                    <small class="form-text " id="bookSts"></small>
-                </div>
-                <div class="form-group">
-                    <label for="memberID">Member ID</label>
-                    <input type="text" class="form-control" id="memberID" name="memberID">
-                    <small class="form-text " id="memSts"></small>
-                </div>
-
-                <div class="text-center mb-2">
-                    <button type="submit" id="ibs" class="btn btn-primary" name="submit">Issue book</button>
-                </div> --}}
-            {{-- </form> --}}
-        {{-- {{Form::close()}} --}} 
-
         {{Form::open(['action'=>'TransactionController@store','method'=>'POST','class'=>'card px-5 py-3 shadow rounded-lg w-50 mt-3','id'=>'form2'])}}
-            {{-- <form action="" class="card px-5 py-3 shadow rounded-lg w-50"> --}}
                 <h3 class="text-center  text-bold mb-5 mt-3 heading">Issue a book</h3>
                 <div class="form-group">
-                    <label for="bookId2">Example select</label>
+                    <label for="bookId2">Select a Book</label>
                     <select name="bookId" class="form-control" id="bookId2" required>
                         <option value selected disabled hidden>select a Book</option>
                         @foreach ($books as $book)
@@ -37,7 +16,7 @@
                     </select>
                 </div>
                 <div class="form-group">
-                    <label for="memberID2">Example select</label>
+                    <label for="memberID2">Select a Member</label>
                     <select name="memberID" class="form-control" id="memberID2" required>
                         <option value selected disabled hidden>select a Member</option>
                         @foreach ($members as $book)
@@ -49,7 +28,6 @@
                 <div class="text-center mb-2">
                     <button type="submit" id="ibs2" class="btn btn-primary" name="submit">Issue book</button>
                 </div>
-            {{-- </form> --}}
         {{Form::close()}}
 
     </div>
@@ -62,7 +40,6 @@
     </style>
     <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
         crossorigin="anonymous"></script>
-        {{-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script> --}}
 <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.0/js/select2.full.min.js" defer></script>
     <script>
         
